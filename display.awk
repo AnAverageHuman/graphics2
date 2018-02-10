@@ -25,3 +25,8 @@ function dumpdisplay(display) {
     }
 }
 
+function display2ppm(display) {
+    printf("%s %d %d %d\n", MAGICNUMBER, DIMR, DIMC, MAXCOLOR);
+    dumpdisplay(display);
+}
+

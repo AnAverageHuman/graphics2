@@ -8,7 +8,8 @@ BEGIN {
     # srand();
 
     gendisplay(THEDISPLAY);
-    dumpdisplay(THEDISPLAY);
+    display2ppm(THEDISPLAY);
+
     exit;
 }
 

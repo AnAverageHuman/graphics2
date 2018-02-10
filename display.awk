@@ -1,6 +1,3 @@
-#!/usr/bin/gawk -f
-@include "config.awk"
-
 # displays are 3D arrays: x, y, (R, G, B)
 
 function gendisplay(display) {

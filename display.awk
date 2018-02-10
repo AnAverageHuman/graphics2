@@ -25,6 +25,12 @@ function dumpdisplay(display) {
     }
 }
 
+function plotpoint(display, x, y, color) {
+    for (i in color) {
+        display[x][y][i] = color[i];
+    }
+}
+
 function display2ppm(display) {
     printf("%s %d %d %d\n", MAGICNUMBER, DIMR, DIMC, MAXCOLOR);
     dumpdisplay(display);

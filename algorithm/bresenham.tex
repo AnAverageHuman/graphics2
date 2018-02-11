@@ -100,7 +100,7 @@ We can manipulate the point-slope equation $y = mx + b$ like so:
           &= (\Delta y) x - (\Delta x) y + (\Delta x) b \\
   f(x, y) &= Ax + By + C
 \end{align*}
-In this case, $A = \Delta y$, $B = -\Delta x$, and $C = \Delta x$.
+In this case, $A = \Delta y$, $B = -\Delta x$, and $C = (\Delta x) b$.
 This gives us the first draft of our algorithm, written in psuedo-code:
 \begin{lstlisting}[mathescape]
   $x = x_0$; $y = y_0$
@@ -151,9 +151,10 @@ The midpoint becomes $\left(x + \frac{1}{2}, y + 1\right)$, and so $d_0 = f\left
 After simplification, we get $d = \frac{1}{2} A + B$, or $2d = A + 2B$.
 The conditional $d > 0$ is flipped, and becomes $d < 0$.
 
-\section{Octant VII}
-Note that we have skipped many octants because one only has to flip octants I and II across the $y$-axis to obtain the formulas for octants III and IV, and across the origin for octants V and VI\@.
-In octant VII, the midpoint is $\left(x + 1, y - \frac{1}{2}\right)$, and so $d_0 = f\left(x_0 + 1, y_0 - \frac{1}{2}\right)$.
+\section{Octant VIII}
+Note that we have skipped many octants because one can draw in octant V by switching the points and drawing in octant I, and in octant VI by doing the same in octant II\@.
+In octant VIII, the midpoint is $\left(x + 1, y - \frac{1}{2}\right)$, and so $d_0 = f\left(x_0 + 1, y_0 - \frac{1}{2}\right)$.
 After simplification, $2d = 2A - B$.
 
 \end{document}
+

@@ -1,11 +1,11 @@
 function octant1line(display, p1, p2, color) {
-    x = p1["x"];
-    y = p1["y"];
-    A = p2["y"] - p1["y"];
-    B = p1["x"] - p2["x"]; # dirty optimization saves a step
+    x = p1[1];
+    y = p1[2];
+    A = p2[2] - p1[2];
+    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = 2 * A + B;
 
-    while (x <= p2["x"]) {
+    while (x <= p2[1]) {
         plotpoint(display, x++, y, color);
         d += 2 * A;
         if (d > 0) {
@@ -16,13 +16,13 @@ function octant1line(display, p1, p2, color) {
 }
 
 function octant2line(display, p1, p2, color) {
-    x = p1["x"];
-    y = p1["y"];
-    A = p2["y"] - p1["y"];
-    B = p1["x"] - p2["x"]; # dirty optimization saves a step
+    x = p1[1];
+    y = p1[2];
+    A = p2[2] - p1[2];
+    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = A + 2 * B;
 
-    while (y <= p2["y"]) {
+    while (y <= p2[2]) {
         plotpoint(display, x, y++, color);
         d += 2 * B;
         if (d < 0) {
@@ -33,13 +33,13 @@ function octant2line(display, p1, p2, color) {
 }
 
 function octant3line(display, p1, p2, color) {
-    x = p1["x"];
-    y = p1["y"];
-    A = p2["y"] - p1["y"];
-    B = p1["x"] - p2["x"]; # dirty optimization saves a step
+    x = p1[1];
+    y = p1[2];
+    A = p2[2] - p1[2];
+    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = A - 2 * B;
 
-    while (y >= p2["y"]) {
+    while (y >= p2[2]) {
         plotpoint(display, x, y--, color);
         d -= 2 * B;
         if (d > 0) {
@@ -50,13 +50,13 @@ function octant3line(display, p1, p2, color) {
 }
 
 function octant4line(display, p1, p2, color) {
-    x = p1["x"];
-    y = p1["y"];
-    A = p2["y"] - p1["y"];
-    B = p1["x"] - p2["x"]; # dirty optimization saves a step
+    x = p1[1];
+    y = p1[2];
+    A = p2[2] - p1[2];
+    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = 2 * A - B;
 
-    while (x <= p2["x"]) {
+    while (x <= p2[1]) {
         plotpoint(display, x++, y, color);
         d += 2 * A;
         if (d < 0) {
@@ -67,12 +67,12 @@ function octant4line(display, p1, p2, color) {
 }
 
 function drawline(display, p1, p2, color) {
-    if (p1["x"] > p2["x"]) {
+    if (p1[1] > p2[1]) {
         drawline(display, p2, p1, color);
         return;
     }
 
-    m = (p2["y"] - p1["y"]) / (p2["x"] - p1["x"]);
+    m = (p2[2] - p1[2]) / (p2[1] - p1[1]);
     printf("slope %s\n", m) >> "/dev/stderr"
     if (m > 0 && m < 1) { # octant I, V
         octant1line(display, p1, p2, color);

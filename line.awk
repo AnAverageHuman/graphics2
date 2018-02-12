@@ -67,32 +67,21 @@ function octant4line(display, p1, p2, color) {
 }
 
 function drawline(display, p1, p2, color) {
+    if (p1["x"] > p2["x"]) {
+        drawline(display, p2, p1, color);
+        return;
+    }
+
     m = (p2["y"] - p1["y"]) / (p2["x"] - p1["x"]);
-    printf("%s", m) >> "/dev/stderr"
-    if (m > 0 && m < 1) {
-        if (p1["x"] > p2["x"]) { # octant I
-            octant1line(display, p2, p1, color);
-        } else { #octant V
-            octant1line(display, p1, p2, color);
-        }
-    } else if (m >= 1) {
-        if (p1["x"] > p2["x"]) { # octant II
-            octant2line(display, p2, p1, color);
-        } else { # octant VI
-            octant2line(display, p1, p2, color);
-        }
-    } else if (m <= -1) {
-        if (p1["x"] > p2["x"]) { # octant III
-            octant3line(display, p2, p1, color);
-        } else { # octant VII
-            octant3line(display, p1, p2, color);
-        }
-    } else if (m < 0 && m > -1) {
-        if (p1["x"] > p2["x"]) { # octant IV
-            octant4line(display, p2, p1, color);
-        } else { # octant VIII
-            octant4line(display, p1, p2, color);
-        }
+    printf("slope %s\n", m) >> "/dev/stderr"
+    if (m > 0 && m < 1) { # octant I, V
+        octant1line(display, p1, p2, color);
+    } else if (m >= 1) { # octant II, IV
+        octant2line(display, p1, p2, color);
+    } else if (m <= -1) { # octant III, octant VII
+        octant3line(display, p1, p2, color);
+    } else if (m < 0 && m > -1) { # octant IV, VIII
+        octant4line(display, p1, p2, color);
     }
 }
 

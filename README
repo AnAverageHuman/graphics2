@@ -1,0 +1,37 @@
+graphics2
+Awkward Valentine Edition
+
+--------------------------------------------------------------------------------
+
+Requires GNU AWK, the default AWK on most Linux systems that have it.
+Requires `rm' for removal of the output file only.
+
+Requires a LaTeX compiler to generate the PDF in algorithm/.
+
+--------------------------------------------------------------------------------
+
+Usage:
+$ make
+Alternatively, one can run the script directly:
+$ gawk -f main.awk
+or
+$ ./main.awk
+
+One can change the output file by declaring $OUTFILE like so:
+$ OUTFILE=filename make
+or
+$ make OUTFILE=filename
+If directly running the script:
+$ gawk -f main.awk > filename
+or
+$ ./main.awk > filename
+
+--------------------------------------------------------------------------------
+
+Notes:
+
+Everything is hard-coded. As such, the picture will not scale properly. There
+really is nothing configurable in config.awk, but one can try.
+
+Attempting to draw vertical or horizontal lines will cause issues. Don't do it.
+

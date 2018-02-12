@@ -32,7 +32,7 @@ BEGIN {
     gendisplay(THEDISPLAY);
 
     for (i in lines) {
-        printf("line %s with ", i) >> "/dev/stderr";
+        printf("line %2s with ", i) >> "/dev/stderr";
         drawline(THEDISPLAY, lines[i][1], lines[i][2], color);
     }
 

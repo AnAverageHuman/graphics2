@@ -73,7 +73,7 @@ function drawline(display, p1, p2, color) {
     }
 
     m = (p2[2] - p1[2]) / (p2[1] - p1[1]);
-    printf("slope %s\n", m) >> "/dev/stderr"
+    printf("slope % g\n", m) >> "/dev/stderr"
     if (m > 0 && m < 1) { # octant I, V
         octant1line(display, p1, p2, color);
     } else if (m >= 1) { # octant II, IV

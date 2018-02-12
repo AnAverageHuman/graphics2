@@ -61,9 +61,9 @@ function drawline(display, p1, p2, color) {
         return;
     }
 
-    m = (p2[2] - p1[2]) / (p2[1] - p1[1]);
+    m = (B == 0) ? 9999 : (p2[2] - p1[2]) / (p2[1] - p1[1]);
     printf("slope % g\n", m) >> "/dev/stderr"
-    if (m > 0 && m < 1) { # octant I, V
+    if (m >= 0 && m < 1) { # octant I, V
         octant1line(display, p1, p2, color);
     } else if (m >= 1) { # octant II, IV
         octant2line(display, p1, p2, color);

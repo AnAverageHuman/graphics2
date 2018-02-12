@@ -33,5 +33,3 @@ Notes:
 Everything is hard-coded. As such, the picture will not scale properly. There
 really is nothing configurable in config.awk, but one can try.
 
-Attempting to draw vertical or horizontal lines will cause issues. Don't do it.
-

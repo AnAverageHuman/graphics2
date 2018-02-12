@@ -1,8 +1,4 @@
 function octant1line(display, p1, p2, color) {
-    x = p1[1];
-    y = p1[2];
-    A = p2[2] - p1[2];
-    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = 2 * A + B;
 
     while (x <= p2[1]) {
@@ -16,10 +12,6 @@ function octant1line(display, p1, p2, color) {
 }
 
 function octant2line(display, p1, p2, color) {
-    x = p1[1];
-    y = p1[2];
-    A = p2[2] - p1[2];
-    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = A + 2 * B;
 
     while (y <= p2[2]) {
@@ -33,10 +25,6 @@ function octant2line(display, p1, p2, color) {
 }
 
 function octant3line(display, p1, p2, color) {
-    x = p1[1];
-    y = p1[2];
-    A = p2[2] - p1[2];
-    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = A - 2 * B;
 
     while (y >= p2[2]) {
@@ -50,10 +38,6 @@ function octant3line(display, p1, p2, color) {
 }
 
 function octant4line(display, p1, p2, color) {
-    x = p1[1];
-    y = p1[2];
-    A = p2[2] - p1[2];
-    B = p1[1] - p2[1]; # dirty optimization saves a step
     d = 2 * A - B;
 
     while (x <= p2[1]) {
@@ -67,6 +51,11 @@ function octant4line(display, p1, p2, color) {
 }
 
 function drawline(display, p1, p2, color) {
+    x = p1[1];
+    y = p1[2];
+    A = p2[2] - p1[2];
+    B = p1[1] - p2[1]; # dirty optimization saves a step
+
     if (p1[1] > p2[1]) {
         drawline(display, p2, p1, color);
         return;

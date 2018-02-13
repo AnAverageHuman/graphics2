@@ -36,6 +36,7 @@ BEGIN {
         drawline(THEDISPLAY, lines[i][1], lines[i][2], color);
     }
 
+    fillcolor(THEDISPLAY, color, color, color);
     display2ppm(THEDISPLAY);
     exit;
 }

@@ -33,3 +33,22 @@ function display2ppm(display) {
     dumpdisplay(display);
 }
 
+function equalpixels(p1, p2) {
+    return p1["r"] == p2["r"] && p1["g"] == p2["g"] && p1["b"] == p2["b"];
+}
+
+function fillcolor(display, color, begcolor, endcolor,   _fill, i, j) {
+    for (i = 0; i < DIMR; i++) {
+        _fill = 0;
+        for (j = 0; j < DIMC; j++) {
+            if (! _fill && equalpixels(display[i][j], begcolor)) {
+                _fill = 1;
+            } else if (_fill && equalpixels(display[i][j], endcolor)) {
+                _fill = 0;
+            } else if (_fill) {
+                plotpoint(display, i, j, color);
+            }
+        }
+    }
+}
+

@@ -1,6 +1,6 @@
 # displays are 3D arrays: x, y, (R, G, B)
 
-function gendisplay(display) {
+function gendisplay(display,   i, j) {
     for (i = 0; i < DIMR; i++) {
         for (j = 0; j < DIMC; j++) {
             display[i][j]["r"] = DEF_COLOR[1];
@@ -10,7 +10,7 @@ function gendisplay(display) {
     }
 }
 
-function dumpdisplay(display) {
+function dumpdisplay(display,   i, j) {
     for (i = 0; i < DIMR; i++) {
         for (j = 0; j < DIMC; j++) {
             printf("%d %d %d ",
@@ -22,7 +22,7 @@ function dumpdisplay(display) {
     }
 }
 
-function plotpoint(display, x, y, color) {
+function plotpoint(display, x, y, color,   i) {
     for (i in color) {
         display[x][y][i] = color[i];
     }

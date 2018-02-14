@@ -37,17 +37,15 @@ function equalpixels(p1, p2) {
     return p1["r"] == p2["r"] && p1["g"] == p2["g"] && p1["b"] == p2["b"];
 }
 
-function fillcolor(display, color, begcolor, endcolor,   _fill, i, j) {
-    for (i = 0; i < DIMR; i++) {
-        _fill = 0;
-        for (j = 0; j < DIMC; j++) {
-            if (! _fill && equalpixels(display[i][j], begcolor)) {
-                _fill = 1;
-            } else if (_fill && equalpixels(display[i][j], endcolor)) {
-                _fill = 0;
-            } else if (_fill) {
-                plotpoint(display, i, j, color);
-            }
+function fillcolor(display, x, y, color, boundcolor,   d, _x, _y) {
+    for (d in DIRECTIONS) {
+        _x = x + DIRECTIONS[d][1];
+        _y = y + DIRECTIONS[d][2];
+
+        if (_x > 0 && _x <= DIMC && _y > 0 && _y <= DIMC &&
+            ! equalpixels(display[_x][_y], boundcolor)) {
+            plotpoint(display, _x, _y, color);
+            fillcolor(display, _x, _y, color, boundcolor);
         }
     }
 }

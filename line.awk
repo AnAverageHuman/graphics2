@@ -51,15 +51,15 @@ function octant4line(display, p1, p2, color,   d) {
 }
 
 function drawline(display, p1, p2, color,   m) {
-    x = p1[1];
-    y = p1[2];
-    A = p2[2] - p1[2];
-    B = p1[1] - p2[1]; # dirty optimization saves a step
-
     if (p1[1] > p2[1]) {
         drawline(display, p2, p1, color);
         return;
     }
+
+    x = p1[1];
+    y = p1[2];
+    A = p2[2] - p1[2];
+    B = p1[1] - p2[1]; # dirty optimization saves a step
 
     m = (B == 0) ? 9999 : (p2[2] - p1[2]) / (p2[1] - p1[1]);
     printf("slope % g\n", m) >> "/dev/stderr"
